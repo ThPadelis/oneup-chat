@@ -1,0 +1,36 @@
+body {
+    font-family: 'Muli', sans-serif;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+#sticky-sidebar {
+    min-height: 100vh;
+}
+
+#content {
+    position: relative;
+}
+
+#message-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 90vh;
+    max-height: 90vh;
+    border-bottom: solid thin #343a40;
+    overflow-y: auto;
+}
+
+#input-area {
+    position: absolute;
+    top: 90vh;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    max-height: 10vh;
+}
+
+#input-area .form-control:focus {
+    box-shadow: none;
+}
