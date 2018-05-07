@@ -1,0 +1,25 @@
+:root {
+    --blue: #3b5998;
+    --blue-light: #8b9dc3;
+    --blue-lighter: #dfe3ee;
+    --main-background-color: #f7f7f7;
+    --main-text-color: rgba(10, 10, 10, 0.85);
+}
+
+body {
+    font-family: 'Anonymous Pro', monospace;
+    background: var(--main-background-color);
+}
+
+#sidebar {
+    min-height: 100vh;
+    border-right: solid thin var(--blue-lighter);
+}
+
+#messageArea {
+    display: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}

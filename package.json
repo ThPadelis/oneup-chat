@@ -1,30 +1,28 @@
 {
-    "name": "chat.me",
-    "version": "0.0.1",
-    "description": "A chat application built with Socket.io and Express ",
-    "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ThPadelis/Chat-App.git"
-    },
-    "keywords": [
-        "node.js",
-        "express",
-        "socket.io"
-    ],
-    "author": "Padelis Theodosiou",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ThPadelis/Chat-App/issues"
-    },
-    "homepage": "https://github.com/ThPadelis/Chat-App#readme",
-    "dependencies": {
-        "express": "^4.16.3",
-        "socket.io": "^2.1.0"
-    },
-    "devDependencies": {}
+  "name": "chat.me",
+  "version": "1.0.0",
+  "description": "Chat application with socket.io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThPadelis/Chat.me.git"
+  },
+  "keywords": [
+    "socket.io",
+    "node.js",
+    "websockets"
+  ],
+  "author": "Theodosiou Padelis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThPadelis/Chat.me/issues"
+  },
+  "homepage": "https://github.com/ThPadelis/Chat.me#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  }
 }
