@@ -29,6 +29,9 @@ io.sockets.on('connection', function (socket) {
 
         connections.splice(connections.indexOf(socket), 1);
         console.log('Disconnected! %s sockets connected', connections.length);
+
+        //Member disconnected
+        io.sockets.emit('member:disconnected', socket.username);
     });
 
     //New message
@@ -48,9 +51,12 @@ io.sockets.on('connection', function (socket) {
             socket.username = data;
             users.push(socket.username);
             updateUsernames();
+
+            //Member connected
+            io.sockets.emit('member:connected', socket.username);
         }
     });
-
+    
     function updateUsernames(){
         io.sockets.emit('get:users', users);
     }

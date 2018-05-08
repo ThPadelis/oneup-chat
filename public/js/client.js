@@ -26,20 +26,21 @@ $(function () {
     userForm.submit(function (e) {
         e.preventDefault();
 
-        socket.emit('new:member', user.val(), function (data) {
-            if (data) {
-                userArea.hide();
-                messageArea.show();
-            } else {
-                $('#usernameError').html('Username is taken...');
-            }
-        });
+        if (user.val() != '') {
+            socket.emit('new:member', user.val(), function (data) {
+                if (data) {
+                    userArea.hide();
+                    messageArea.show();
+                } else {
+                    $('#usernameError').html('Username is taken...');
+                }
+            });
+        }
         user.val('');
     });
 
     //Listen to events
     socket.on('new:message', function (data) {
-        console.log(data);
         chat.append('<p class="mb-2"><strong>' + data.username + ':</strong> ' + data.message + '</p>');
         chat.scrollTop(chat[0].scrollHeight);
     });
@@ -51,5 +52,13 @@ $(function () {
         }
         onlineUsers.html(html);
         onlineNow.html(data.length);
-    })
+    });
+
+    socket.on('member:connected', function (data) {
+        chat.append('<p class="text-center text-muted mb-2"><em>' + data + ' connected. Say hi!</em></p>');
+    });
+
+    socket.on('member:disconnected', function (data) {
+        chat.append('<p class="text-center text-muted mb-2"><em>' + data + ' disconnected...</em></p>');
+    });
 });
