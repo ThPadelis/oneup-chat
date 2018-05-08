@@ -17,7 +17,7 @@
         "websockets"
     ],
     "author": "Theodosiou Padelis",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/ThPadelis/Chat.me/issues"
     },
