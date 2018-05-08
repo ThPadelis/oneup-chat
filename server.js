@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/public'));
 io.sockets.on('connection', function (socket) {
     connections.push(socket);
     console.log('Connected! %s sockets connected', connections.length);
+    updateUsernames();
 
     //Disconnected
     socket.on('disconnect', function () {
@@ -40,10 +41,14 @@ io.sockets.on('connection', function (socket) {
 
     //New user
     socket.on('new:member', function(data, callback){
-        callback(true);
-        socket.username = data;
-        users.push(socket.username);
-        updateUsernames();
+        if(users.indexOf(data) != -1){
+            callback(false);
+        }else{
+            callback(true);
+            socket.username = data;
+            users.push(socket.username);
+            updateUsernames();
+        }
     });
 
     function updateUsernames(){

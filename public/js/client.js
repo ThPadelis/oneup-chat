@@ -16,8 +16,10 @@ $(function () {
     messageForm.submit(function (e) {
         e.preventDefault();
 
-        socket.emit('new:message', message.val());
-        message.val('');
+        if (message.val() != '') {
+            socket.emit('new:message', message.val());
+            message.val('');
+        }
     });
 
     //Enter username - Form
@@ -28,6 +30,8 @@ $(function () {
             if (data) {
                 userArea.hide();
                 messageArea.show();
+            } else {
+                $('#usernameError').html('Username is taken...');
             }
         });
         user.val('');
@@ -37,12 +41,13 @@ $(function () {
     socket.on('new:message', function (data) {
         console.log(data);
         chat.append('<p class="mb-2"><strong>' + data.username + ':</strong> ' + data.message + '</p>');
+        chat.scrollTop(chat[0].scrollHeight);
     });
 
     socket.on('get:users', function (data) {
         var html = '';
         for (var i = 0; i < data.length; i++) {
-            html += '<li class="nav-item"><a href="#" class="nav-link">' + data[i] + '</a></li>';
+            html += '<li class="nav-item"><a href="#" class="nav-link text-dark">' + data[i] + '</a></li>';
         }
         onlineUsers.html(html);
         onlineNow.html(data.length);

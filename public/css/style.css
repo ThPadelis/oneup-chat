@@ -18,6 +18,24 @@ body {
 
 #messageArea {
     display: none;
+    height: 100vh;
+}
+
+#userArea {
+    height: 100vh;
+    max-height: 100vh;
+}
+
+#messageArea #chat{
+    min-height: 90vh;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#messageArea #messageForm{
+    height: 10vh;
+    max-height: 10vh;
+    border-top: solid thin var(--blue-lighter);
 }
 
 .form-control:focus {
