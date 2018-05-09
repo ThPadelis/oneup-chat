@@ -5,63 +5,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OneUp-Chat</title>
-    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700" rel="stylesheet">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' />
+    <title>OneUp Chat</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' />
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a href="/" class="navbar-brand">OneUp Chat</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                    <span class="fa fa-bars"></span>
+                </button>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2 col-md-3 p-4" id="sidebar">
-                <h4>Online now
-                    <span class="float-right clearfix" id="online-now"></span>
-                </h4>
-                <ul class="list-unstyled flex-column" id="online-users"></ul>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Create room
+                                <span class="fa fa-plus text-primary"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Join room
+                                <span class="fa fa-sign-in text-primary"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-sm-10 col-md-9">
+        </nav>
+    </header>
 
-                <div class="row" id="userArea">
-                    <div class="col-sm-6 col-md-6 mx-auto my-auto">
-                        <form id="userForm">
-                            <div class="input-group">
-                                <input type="text" id="username" class="form-control" placeholder="Enter your username...">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="submit">
-                                        <span class="fa fa-sign-in"></span>
-                                    </button>
-                                </div>
+    <main class="container">
+        <div class="row py-4">
+            <div class="col-md-3 d-none d-md-block d-lg-block" id="usersWrapper">
+                <p class="h5">Online now ( <span id="online-now"></span> )</p>
+                <ul class="navbar-nav flex-column" id="users-now"></ul>
+            </div>
+            <!-- Log in area -->
+            <div class="col-md-9">
+                <div class="row" id="userWrapper">
+                    <form class="col-md-12 form" id="userForm">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter username" id="username" autofocus autocomplete="off">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <span class="fa fa-sign-in"></span>
+                                </button>
                             </div>
-                            <p class="text-danger" id="usernameError"></p>
-                        </form>
-                    </div>
+                        </div>
+                        <p class="text-danger small" id="usernameError"></p>
+                    </form>
                 </div>
 
-                <div class="row" id="messageArea">
-                    <div class="col-sm-12 col-md-12 px-0">
-                        <div id="chat" class="p-4"></div>
-                        <form id="messageForm" class="p-3">
-                            <div class="input-group">
-                                <input type="text" id="message" class="form-control" placeholder="Type a message..." autocomplete="off">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-primary" type="submit">
-                                        <span class="fa fa-paper-plane-o"></span>
-                                    </button>
-                                </div>
+                <!-- Chat area -->
+                <div class="row" id="chatWrapper">
+                    <div class="col-md-12" id="chatMessages"></div>
+                    <form class="col-md-12 form my-4" id="chatForm">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Type a message" id="message" autocomplete="off" maxlength="150">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <span class="fa fa-paper-plane-o"></span>
+                                </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <footer class="fixed-bottom bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="m-2 small text-center" id="copyrights"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
     <script src="js/client.js"></script>
 </body>
 

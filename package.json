@@ -1,27 +1,18 @@
 {
-    "name": "chat.me",
-    "version": "1.0.0",
-    "description": "Chat application with socket.io",
+    "name": "oneup-chat",
+    "version": "0.0.1",
+    "description": "Sample NodeJS/Express application demonstrating the use of Socket.IO.",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ThPadelis/Chat.me.git"
-    },
     "keywords": [
-        "socket.io",
         "node.js",
-        "websockets"
+        "socket.io"
     ],
     "author": "Theodosiou Padelis",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ThPadelis/Chat.me/issues"
-    },
-    "homepage": "https://github.com/ThPadelis/Chat.me#readme",
     "dependencies": {
         "express": "^4.16.3",
         "socket.io": "^2.1.0"

@@ -1,0 +1,22 @@
+/* General */
+
+body {
+    font-family: 'Varela Round', sans-serif;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+}
+
+/* chatWrapper */
+
+#chatWrapper {
+    display: none;
+}
+
+#chatMessages, #usersWrapper {
+    min-height: 65vh;
+    max-height: 65vh;
+    overflow: auto;
+}
