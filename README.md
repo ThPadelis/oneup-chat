@@ -20,10 +20,11 @@ This project was a simple test of sockets as a traditional chat program.
 You can view a running copy of this app, deployed on heroku at: [oneup-chat.herokuapp.com](https://oneup-chat.herokuapp.com)
 
 ### More to come
-
-* Unique color per user
-* Message history (maybe up to 100 messages?)
+- [x] Unique color per user
+- [x] User connected/disconnected message
+- [ ] Private rooms / chats
+- [ ] Message history (maybe up to 100 messages?)
+- [ ] Add emojis
+- [ ] Alert sound for new messages  
 
 Enjoy!.
-
-Feel free to contribute
