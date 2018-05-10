@@ -4,6 +4,15 @@ body {
     font-family: 'Varela Round', sans-serif;
 }
 
+/* Navigation menu */
+
+header {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .form-control:focus {
     box-shadow: none;
     border-color: #007bff;
@@ -15,7 +24,8 @@ body {
     display: none;
 }
 
-#chatMessages, #usersWrapper {
+#chatMessages,
+#usersWrapper {
     min-height: 65vh;
     max-height: 65vh;
     overflow: auto;
