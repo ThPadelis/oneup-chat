@@ -1,12 +1,12 @@
 $(function () {
     var socket = io.connect();
     //Log in area DOM
-    var userWrapper = $('#userWrapper');
+    var loginArea = $('#loginArea');
     var userForm = $('#userForm');
     var userName = $('#username');
 
     //Chat area DOM
-    var chatWrapper = $('#chatWrapper');
+    var chatArea = $('#chatArea');
     var chatMessages = $('#chatMessages');
     var chatForm = $('#chatForm');
     var message = $('#message');
@@ -18,8 +18,8 @@ $(function () {
         if (userName.val() != '') {
             socket.emit('new:member', userName.val(), function (data) {
                 if (data) {
-                    userWrapper.hide();
-                    chatWrapper.show();
+                    loginArea.hide();
+                    chatArea.show();
                     message.focus();
                 } else {
                     $('#usernameError').html('Username is taken...');
@@ -45,7 +45,7 @@ $(function () {
     socket.on('users:get', function (data) {
         var displayUsers = '';
         for (var i = 0; i < data.length; i++) {
-            displayUsers += '<li class="nav-item"><a href="#" class="nav-link text-dark">' + data[i] + '</a></li>';
+            displayUsers += '<li class="nav-item"><a href="#" class="nav-link text-dark text-truncate">' + data[i] + '</a></li>';
         }
 
         $('#users-now').html(displayUsers);
