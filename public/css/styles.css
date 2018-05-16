@@ -47,3 +47,10 @@ header {
 #copyrights a:hover {
     color: rgba(108, 117, 125, 1);
 }
+
+/* Direct Modal */
+
+#directChatMessages {
+    height: 50vh;
+    overflow: auto;
+}

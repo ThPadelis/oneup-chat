@@ -45,7 +45,7 @@ $(function () {
     socket.on('users:get', function (data) {
         var displayUsers = '';
         for (var i = 0; i < data.length; i++) {
-            displayUsers += '<li class="nav-item"><a href="#" class="nav-link text-dark text-truncate">' + data[i] + '</a></li>';
+            displayUsers += '<li class="nav-item"><a href="#" class="nav-link text-dark text-truncate" data-toggle="modal" data-target="#directModal">' + data[i] + '</a></li>';
         }
 
         $('#users-now').html(displayUsers);
