@@ -4,18 +4,13 @@ body {
     font-family: 'Varela Round', sans-serif;
 }
 
-/* Navigation menu */
-
-header {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .form-control:focus {
     box-shadow: none;
     border-color: #343a40;
+}
+
+.btn:focus {
+    box-shadow: none;
 }
 
 /* Chat area */
