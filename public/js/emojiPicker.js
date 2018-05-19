@@ -104,9 +104,11 @@
                         key: "generateElements",
                         value: function generateElements(emojiInput) {
                             var clickLink = function clickLink(event) {
+                                event.preventDefault();
                                 var caretPos = emojiInput.selectionStart;
                                 emojiInput.value = emojiInput.value.substring(0, caretPos) + " " + event.target.innerHTML + emojiInput.value.substring(caretPos);
                                 emojiPicker.style.display = "none";
+                                emojiInput.focus();
 
                                 //trigger ng-change for angular
                                 if (typeof angular !== "undefined") {
